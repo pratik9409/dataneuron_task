@@ -10,10 +10,6 @@ app = Flask(__name__)
 
 # Enable CORS for all endpoints
 CORS(app)
-# Environment variables for flexibility
-HOST = os.getenv('FLASK_HOST', '0.0.0.0')
-PORT = int(os.getenv('FLASK_PORT', 8080))
-DEBUG_MODE = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
 
 # Health check endpoint
 @app.route('/', methods=['GET'])
@@ -48,4 +44,4 @@ def predict_similarity():
 
 
 if __name__ == '__main__':
-    app.run(host=HOST, port=PORT, debug=DEBUG_MODE)
+    app.run(host='0.0.0.0', port=8080)
